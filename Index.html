@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Pedalea por un Cieneguillo Mejor! - Fabian Flores García</title>
+  <meta name="description" content="Iniciativa para promover el uso de la bicicleta en Cieneguillo Sur y combatir la contaminación del aire en Piura.">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --primary-dark: #1b5e20;
+      --secondary: #ff6f00;
+      --light: #f5f5f5;
+      --dark: #333;
+      --white: #ffffff;
+      --footer-title: #ffeb3b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.7;
+      color: var(--dark);
+      background: var(--light);
+    }
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 6rem 2rem 8rem;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://gestion.pe/resizer/v2/EWNGVARBPNEHVJ2QRGP73ERI7I.jpg?auth=9aef30d28f9a85c9fa256628be1039e01b5ce5c97637d4a84e73bbbcd3d6156b&width=1200&height=900&quality=75&smart=true') center/cover no-repeat;
+      opacity: 0.4;
+      z-index: 0;
+    }
+    .container { position: relative; z-index: 1; }
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .subtitle {
+      font-size: 1.4rem;
+      font-weight: 300;
+      margin: 1rem 0 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--secondary);
+      color: var(--white);
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0.5rem;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(255,111,0,0.4);
+    }
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255,111,0,0.6);
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid var(--white);
+      color: var(--white);
+    }
+    section {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h2 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 2rem;
+      color: var(--primary);
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      width: 100px;
+      height: 4px;
+      background: var(--secondary);
+      display: block;
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-10px); }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 2rem;
+      text-align: center;
+    }
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    .benefits {
+      background: white;
+      border-radius: 15px;
+      padding: 3rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin: 3rem auto;
+    }
+    .benefits h3 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 2rem;
+    }
+    .benefits-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .benefit-category h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .benefit-category ul {
+      list-style: disc inside;
+      text-align: left;
+    }
+    .bike-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+    .bike-gallery img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .proposals {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+    }
+    .proposals h2 {
+      color: #ffeb3b;
+    }
+    .proposals ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .proposal {
+      background: rgba(255,255,255,0.15);
+      padding: 2rem;
+      border-radius: 15px;
+      backdrop-filter: blur(5px);
+    }
+    .proposal i {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+    footer {
+      background: var(--primary-dark);
+      color: white;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    footer h2 {
+      color: var(--footer-title);
+      font-size: 2.5rem;
+    }
+    .social-icons a {
+      color: white;
+      font-size: 2rem;
+      margin: 0 1rem;
+      transition: 0.3s;
+    }
+    .social-icons a:hover { color: var(--secondary); }
+    .hashtags {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      font-style: italic;
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 2.2rem; }
+      .subtitle { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>¡Pedalea por un Cieneguillo Mejor!</h1>
+      
+      <div style="margin: 2rem 0;">
+        <a href="#" class="btn">¡Únete al movimiento!</a>
+        <a href="#propuestas" class="btn btn-secondary">Mis propuestas</a>
+      </div>
+      
+      <p style="margin-top: 2rem; font-size: 1.1rem;">#LuchemosPorUnAireMasLimpio #CavanisMasLimpio #UnAireLimpioUnAmbienteMejor #SiPodemos</p>
+    </div>
+  </header>
+
+  <section id="contaminacion">
+    <div class="container">
+      <h2>El Enemigo Silencioso: Contaminación del Aire en Nuestra Zona</h2>
+      <p style="text-align:center; max-width:800px; margin:0 auto 3rem;">
+        En Piura, especialmente en valles como el Chira, la quema de residuos de caña de azúcar y las emisiones vehiculares generan tóxicos como material particulado (PM), monóxido de carbono y óxidos de nitrógeno. Estos contaminantes penetran en nuestros pulmones, causando asma, bronquitis, irritación ocular, fatiga y estrés. Imagina estudiar con la sensación de no poder respirar bien... ¡Un aire más limpio equivale a una mente más ágil y un ambiente mejor!
+      </p>
+      
+      <div class="grid">
+        <div class="card">
+          <img src="https://larepublica.cronosmedia.glr.pe/original/2021/05/07/6095e1dfef4e3672dc5e6397.jpg" alt="Quema de residuos agrícolas">
+          <div class="card-content">
+            <h3>Quema de residuos agrícolas</h3>
+            <p>Principal fuente de contaminación en nuestra zona</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://ojo-publico.com/sites/default/files/2024-01/Motos%20Lima_%20OjoPu%CC%81blico%20Aldair%20Meji%CC%81a%20home.jpg" alt="Emisiones vehiculares">
+          <div class="card-content">
+            <h3>Emisiones vehiculares</h3>
+            <p>Tráfico constante en Sullana y Piura</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://fotografias-2.larazon.es/clipping/cmsimages01/2023/03/10/CED980A8-B5BB-49AC-8ED6-BFF0F4F7AD6D/contaminacion-aire-acribilla-salud-ninos-asma-cerebro_98.jpg?crop=6000,3376,x0,y316&width=1900&height=1069&optimize=low&format=webply" alt="Impacto en la salud">
+          <div class="card-content">
+            <h3>Impacto en la salud</h3>
+            <p>Problemas respiratorios y menor rendimiento escolar</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="bicicleta" style="background:#f0f9f0;">
+    <div class="container">
+      <h2>La Bicicleta: Nuestro Escudo y Solución</h2>
+      <p style="text-align:center; max-width:800px; margin:0 auto 3rem;">
+        La bicicleta no emite contaminantes, reduce el tráfico y es perfecta para nuestras rutas locales en Cieneguillo Sur. Es una forma accesible, económica y divertida de movernos, especialmente para ir al colegio o hacer recados cercanos. ¡Cada viaje en bici es una victoria para nuestro aire y nuestra salud!
+      </p>
+
+      <h2>¿Por qué usar la bicicleta?</h2>
+      <p style="text-align:center; max-width:800px; margin:0 auto 3rem;">
+        En un mundo cada vez más contaminado por los vehículos motorizados, la bicicleta es una solución simple, saludable y ecológica. Al elegir la bicicleta en lugar del auto o la moto, contribuimos directamente a reducir las emisiones de gases contaminantes que afectan nuestro planeta.
+      </p>
+      
+      <div class="benefits">
+        <div class="benefits-list">
+          <div class="benefit-category">
+            <h4>Beneficios para el medio ambiente</h4>
+            <ul>
+              <li>Reduce la contaminación del aire: Las bicicletas no emiten gases de efecto invernadero ni partículas contaminantes.</li>
+              <li>Disminuye el ruido: Adiós al ruido constante de los motores.</li>
+              <li>Ahorra recursos: No consume combustible fósil.</li>
+              <li>Protege la biodiversidad: Menos contaminación significa un planeta más sano para todos los seres vivos.</li>
+            </ul>
+          </div>
+          <div class="benefit-category">
+            <h4>Beneficios para ti</h4>
+            <ul>
+              <li>Mejora tu salud física y mental.</li>
+              <li>Ahorras dinero en combustible y mantenimiento.</li>
+              <li>Evitas el tráfico y llegas más rápido en distancias cortas.</li>
+              <li>¡Es divertido y te conecta con tu entorno!</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bike-gallery">
+        <img src="https://www.ipae.pe/wp-content/uploads/2020/01/Baika-Picchu-11.jpg" alt="Niños en bicicleta en zonas rurales de Perú">
+        <img src="https://www.machupicchuterra.com/wp-content/uploads/valle-sagrado-cusco-ciclismo-full.jpg" alt="Ciclistas disfrutando rutas en Perú">
+        <img src="https://thumbs.dreamstime.com/b/grupo-de-estudiantes-la-escuela-secundaria-que-llevan-llegada-uniforme-las-bicis-caminan-o-montan-es-saludado-por-el-profesor-134207911.jpg" alt="Estudiantes llegando al colegio en bicicleta">
+        <img src="https://st4.depositphotos.com/1037987/23174/i/450/depositphotos_231741522-stock-photo-group-high-school-students-wearing.jpg" alt="Grupo de estudiantes en bici con seguridad">
+      </div>
+    </div>
+  </section>
+
+  <section id="propuestas" class="proposals">
+    <div class="container">
+      <h2>¡Manos a la Obra! Mis Propuestas para Nuestra Comunidad</h2>
+      <ul>
+        <li class="proposal">
+          <i class="fas fa-bicycle"></i>
+          <h3>Programa "Bici-Escuela" en el Cavanis</h3>
+          <p>Talleres de mecánica básica, normas de tránsito y rutas seguras al colegio</p>
+        </li>
+        <li class="proposal">
+          <i class="fas fa-trophy"></i>
+          <h3>Incentivos y motivación</h3>
+          <p>Bicicleteros en la escuela, recompensas para quien llegue en bici y rodadas grupales</p>
+        </li>
+        <li class="proposal">
+          <i class="fas fa-bullhorn"></i>
+          <h3>Conciencia y educación</h3>
+          <p>Charlas y desafíos para compartir cómo cada pedalazo limpia nuestro cielo</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <h2>¡La próxima vez que tengas que moverte, recuerda que cada pedalazo es un respiro que le das a nuestro Perú!</h2>
+      <p style="margin: 1.5rem 0;">Súbete a la bici y sé parte del cambio.</p>
+      
+      <div class="social-icons">
+        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+      
+      <div class="hashtags">
+        #LuchemosPorUnAireMasLimpio #CavanisMasLimpio #UnAireLimpioUnAmbienteMejor #SiPodemos
+      </div>
+      
+      <p style="margin-top: 2rem;">Iniciativa de Fabian Flores García - 5to año, I.E. Antonio y Marcos Cavanis - Cieneguillo Sur, Santa Rosa, Sullana, Piura</p>
+    </div>
+  </footer>
+
+</body>
+</html>
